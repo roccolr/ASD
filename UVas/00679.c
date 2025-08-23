@@ -1,7 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#define MAX_DEPTH 6
 
 int find_pos(int, int, int);
 
