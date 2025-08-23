@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.9)  16 JUL 2025 15:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.9)  23 AUG 2025 23:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/rocco/Documents/università/APC/tesina_APC/main.tex
-(c:/Users/rocco/Documents/università/APC/tesina_APC/main.tex
+**c:/Users/rocco/Desktop/ASD/Homeworks/LaTeX/main.tex
+(c:/Users/rocco/Desktop/ASD/Homeworks/LaTeX/main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\Users\rocco\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -660,7 +660,7 @@ File: T1XCharter-TLF.fd 2017/06/25 (autoinst) Font definitions for T1/XCharter-T
 )
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 10.0pt on input line 38.
- (c:\Users\rocco\Documents\università\APC\tesina_APC\out\main.aux)
+ (c:\Users\rocco\Desktop\ASD\Homeworks\LaTeX\out\main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -759,54 +759,27 @@ LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
 (Font)              scaled to size 14.4pt on input line 46.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 10.0pt on input line 47.
-LaTeX Font Info:    Trying to load font information for TS1+XCharter-TLF on input line 63.
- (C:\Users\rocco\AppData\Local\Programs\MiKTeX\tex/latex/xcharter\ts1xcharter-tlf.fd
-File: TS1XCharter-TLF.fd 2020/05/25 (msharpe) Font definitions for TS1/XCharter-TLF.
-)
-LaTeX Font Info:    Font shape `TS1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 63.
-LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 69.
-LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 70.
+(Font)              scaled to size 12.0pt on input line 50.
  [1
 
-{C:/Users/rocco/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/rocco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/xcharter/xch_rydp4l.enc}{C:/Users/rocco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/xcharter/xch1_co4ru4.enc}] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 262--264
-
- []
-
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 266.
-
-Overfull \hbox (9.59932pt too wide) in paragraph at lines 268--269
-   [] \T1/XCharter-TLF/m/n/10 In-tero che pu� as-sumere i val-ori -1 (\T1/cmtt/m/n/10 is_free\T1/XCharter-TLF/m/n/10 ), 0 (\T1/cmtt/m/n/10 is_reading_b\T1/XCharter-TLF/m/n/10 ) o 1 (\T1/cmtt/m/n/10 is_reading_c\T1/XCharter-TLF/m/n/10 ). 
- []
-
-[3]
-LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 285.
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 285.
- [4] [5] [6] [7] [8] [9] (c:\Users\rocco\Documents\università\APC\tesina_APC\out\main.aux)
+{C:/Users/rocco/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/rocco/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/xcharter/xch_rydp4l.enc}] (c:\Users\rocco\Desktop\ASD\Homeworks\LaTeX\out\main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 21169 strings out of 474486
- 399987 string characters out of 5743756
- 2196542 words of memory out of 5000000
- 43021 multiletter control sequences out of 15000+600000
- 624409 words of font info for 81 fonts, out of 8000000 for 9000
+ 20405 strings out of 474486
+ 391535 string characters out of 5743756
+ 1928542 words of memory out of 5000000
+ 42270 multiletter control sequences out of 15000+600000
+ 603342 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 132i,6n,148p,1194b,1809s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\rocco\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecit0900.pk> <C:\Users\rocco\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\rocco\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\rocco\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/rocco/AppData/Local/Programs/MiKTeX/fonts/type1/public/xcharter/XCharter-Bold.pfb><C:/Users/rocco/AppData/Local/Programs/MiKTeX/fonts/type1/public/xcharter/XCharter-Italic.pfb><C:/Users/rocco/AppData/Local/Programs/MiKTeX/fonts/type1/public/xcharter/XCharter-Roman.pfb>
-Output written on c:\Users\rocco\Documents\università\APC\tesina_APC\out\main.pdf (9 pages, 250650 bytes).
+ 132i,6n,148p,1185b,311s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\rocco\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/rocco/AppData/Local/Programs/MiKTeX/fonts/type1/public/xcharter/XCharter-Bold.pfb><C:/Users/rocco/AppData/Local/Programs/MiKTeX/fonts/type1/public/xcharter/XCharter-Roman.pfb>
+Output written on c:\Users\rocco\Desktop\ASD\Homeworks\LaTeX\out\main.pdf (1 page, 117963 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
+ 38 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
