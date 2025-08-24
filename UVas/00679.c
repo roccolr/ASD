@@ -5,7 +5,6 @@ int find_pos(int, int, int);
 int main(int argc, char ** argv){
     int j = 1;
     int d,i, output;
-
     do{
         d = atoi(argv[j]);
         i = atoi(argv[j+1]);
