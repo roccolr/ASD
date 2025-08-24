@@ -12,7 +12,7 @@ int main(int argc, char ** argv){
         j+=2;
         output = find_pos(i, d, 1);
         printf("(%d,%d)\t->\t%d\n", d,i,output);
-    }while(j != -1);
+    }while(argv[j] != -1);
 }
 
 int find_pos(int i, int d, int root){
