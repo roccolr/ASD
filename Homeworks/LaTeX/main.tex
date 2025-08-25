@@ -85,7 +85,7 @@ Un esempio di funzione asintoticamente non negativa che soddisfa la definizione 
 \vspace{\baselineskip}
 
 \noindent
-Per quanto riguarda la seconda affermazione, $f(n) + O(f(n)) =  \Theta(f(n))$, dimostriamo che è sempre vera: il generico elemento $h(n) \in \{f(n) + O(n)\}$ possiamo scriverlo come $h(n) = f(n) + g(n)$, con $g(n) \in O(n)$; I passaggi illustrati in  (\ref{eq:proof_1_1_2_1}) dimostrano che $f(n) + O(f(n)) = \Theta(f(n))$ $\forall n \ge n_0$, mentre i passaggi illustrati in (\ref{eq:proof_1_1_2_2}) dimostrano che $f(n) + O(f(n)) = \Omega(f(n))$ $\forall n \ge n_0$. 
+Per quanto riguarda la seconda affermazione, $f(n) + O(f(n)) =  \Theta(f(n))$, dimostriamo che è sempre vera: il generico elemento $h(n) \in \{f(n) + O(n)\}$ possiamo scriverlo come $h(n) = f(n) + g(n)$, con $g(n) \in O(n)$; I passaggi illustrati in  (\ref{eq:proof_1_1_2_1}) dimostrano che $f(n) + O(f(n)) = O(f(n))$ $\forall n \ge n_0$, mentre i passaggi illustrati in (\ref{eq:proof_1_1_2_2}) dimostrano che $f(n) + O(f(n)) = \Omega(f(n))$ $\forall n \ge n_0$. 
 
 \begin{equation} \label{eq:proof_1_1_2_1}
 \begin{aligned}
@@ -103,9 +103,130 @@ g(n) \ge 0 \implies f(n) + g(n) \ge f(n)
 \noindent
 Possiamo concludere che il generico elemento $h(n) \in \{f(n)+O(f(n))\}$ è sia un elemento di $O(f(n))$ che un elemento di $\Omega(f(n))$, ragione per cui $\{f(n)+O(f(n))\} \subseteq {\Theta(f(n))} \implies f(n) + O(f(n)) = \Theta(f(n))$.
 
+\vspace{\baselineskip}
+\noindent
+Per quanto riguarda la terza affermazione, $ f(n) = \Omega(g(n))$ e $f(n) = o(g(n))$, è sempre falsa. Intuitivamente, dire che $ f(n) = \Omega(g(n))$ significa che $f(n)$ asintoticamente cresce almeno come cresce $g(n)$, mentre dire che $f(n) = o(g(n))$ significa che $f(n)$ è asintoticamente trascurabile rispetto a $g(n)$, e questo è chiaramente in contraddizione. Verifichiamolo tramite definizioni, assumendo $f(n)$ definitivamente non negativa e $g(n)$ definitivamente positiva:
+
+\begin{equation} \label{eq:proof_1_1_3_1}
+\begin{aligned}
+f(n) = \Omega(g(n)) &\implies \exists  c>0, n>n_0 \; | \; f(n) \ge cg(n) \ \forall n>n_0 \\
+f(n) = o(g(n)) & \implies \lim_{n \to \infty} \frac{f(n)}{g(n)} = 0 \leftrightarrow \forall \epsilon>0 \ \exists \ n_1 \in \mathbb{N} \ \text{t.c.} \ \frac{f(n)}{g(n)} < \epsilon \ \forall \ n>n_1
+\end{aligned}
+\end{equation}
+
+\noindent
+Se dalla definizione del limite scegliamo $\epsilon = \frac{c}{2}$, risulta, per $n > \max\{n_0,n_1\}$, contemporaneamente $f(x) \ge cg(n)$ e $f(x) < \frac{c}{2}g(n)$, e questo è impossibile. 
 
 \subsection{Esercizio 1.2} \label{subsec:esercizio1_2}
-prova prova
+\textbf{Traccia}:
+
+\noindent
+\textit{Per ognuna delle seguenti coppie di funzioni $f(n)$ e $g(n)$, trovare una appropriata costante positiva c tale che $f(n) \le cg(n)$  per tutti i valori di $n > 1$.}
+\begin{itemize}
+    \item $f(n) = n^2 + n + 1, \quad g(n) = 2n^3$;
+    \item $f(n) = n\sqrt{n} + n^2, \quad g(n) = n^2 $;
+    \item $ f(n) = n^2 - n + 1, \quad g(n) = n^2/2 $
+\end{itemize}
+\vspace{\baselineskip}
+
+\noindent
+\textbf{Soluzione}: 
+
+\noindent
+La prima costante $c$ che soddisfi $f(n) = n^2 + n + 1 \le cg(n) = 2cn^3$ può essere facilmente trovata tramite i passaggi presentati in (\ref{eq:proof_1_2_1_1}), nei quali osserviamo che $\frac{1}{n} + \frac{1}{n^2} + \frac{1}{n^3}$ è una funzione definitivamente decrescente $\forall n>1$, e in particolare assume il valore massimo proprio in $n=1$.
+
+\begin{equation} \label{eq:proof_1_2_1_1}
+\begin{aligned}
+n^2 + n + 1 \le 2cn^3 \implies \frac{n^2 + n +1}{n^3} \le 2c &\implies \frac{1}{n} + \frac{1}{n^2} + \frac{1}{n^3} \le 2c \\
+3 \le 2c &\implies c \ge \frac{3}{2}
+\end{aligned}
+\end{equation}
+
+\noindent
+Per questo motivo, anche se stiamo assumendo $n>1$ strettamente, una costante opportuna potrebbe essere proprio $c = \frac{3}{2}$.
+
+\vspace{\baselineskip}
+\noindent
+La seconda costante $c$ che soddisfi $f(n) = n\sqrt{n} + n^2 \le cg(n) = cn^2 $ può essere trovata tramite lo stesso metodo presentato sopra, ovvero osservando nei passaggi (\ref{eq:proof_1_2_2_1}) che la funzione $\frac{\sqrt{n}}{n} + 1 = \frac{1}{\sqrt{n}} + 1 $ è una funzione decrescente $\forall n > 1$, e che assume valore massimo pari a 2 proprio in $n=1$.
+
+\begin{equation} \label{eq:proof_1_2_2_1}
+\begin{aligned}
+n\sqrt{n} + n^2 \le cn^2 &\implies n\sqrt{n} \le cn^2 - n^2 = n^2 (c-1) \\
+&\implies c \ge \frac{1}{\sqrt{n}} + 1
+\end{aligned}
+\end{equation}
+
+\noindent
+Per questo motivo, anche se stiamo assumendo $n>1$, una costante opportuna potrebbe essere proprio $c = 2$.
+
+\vspace{\baselineskip}
+\noindent
+La terza costante $c$ che soddisfi $ f(n) = n^2 - n + 1 \le cg(n) = cn^2/2 $ può essere trovata ancora tramite lo stesso metodo, ovvero osservando nei passaggi (\ref{eq:proof_1_2_3_1}) che la funzione $1-\frac{1}{n} + \frac{1}{n^2} $ è una funzione che per $n \rightarrow \infty $ viene limitata dal valore 1.
+
+\begin{equation} \label{eq:proof_1_2_3_1}
+\begin{aligned}
+n^2 - n + 1 \le \frac{cn^2}{2} &\implies 1 - n \le \frac{cn^2}{2} - n^2 \\
+&\implies 1 - n \le n^2 (\frac{c}{2} -1) \\
+&\implies \frac{c}{2} \ge 1 - \frac{1}{n} + \frac{1}{n^2} \\
+\end{aligned}
+\end{equation}
+
+\noindent
+Per questo motivo, anche se stiamo assumendo $n>1$, una costante opportuna potrebbe essere proprio $c = 2$, e in particolare c è la costante più piccola che garantisca la diseguaglianza $\forall n>1$.
+
+\subsection{Esercizio 1.3} \label{subsec:esercizio1_3}
+\textbf{Traccia}:
+
+\noindent
+\textit{Dimostrare che per qualsiasi costante reale a e b, con b > 0, $(n+a)^b = \Theta(n^b)$}.
+\vspace{\baselineskip}
+
+\noindent
+\textbf{Soluzione}: 
+
+\begin{equation} \label{eq:proof_1_3_1_1}
+\begin{aligned}
+(n+a)^b = n^b\left( 1+\frac{a}{n} \right)^b
+\end{aligned}
+\end{equation}
+
+\noindent
+Osserviamo che se scegliamo $n_0 = 2|a|$ ad esempio, è soddisfatta la disuguaglianza $\frac{|a|}{n} < \frac{1}{2} \ \forall n>2|a|$. Possiamo continuare con la (\ref{eq:proof_1_3_1_2}): 
+
+\begin{equation} \label{eq:proof_1_3_1_2}
+\begin{aligned}
+\frac{1}{2} \le 1 - \frac{|a|}{n} \le 1 + \frac{a}{n} \le 1 + \frac{|a|}{n} \le \frac{3}{2} \implies
+\frac{1}{2} \le 1 + \frac{a}{n} \le \frac{3}{2} 
+\end{aligned}
+\end{equation}
+
+\noindent
+Dato che b>0, possiamo elevare tutti i membri della catena di disequazioni (\ref{eq:proof_1_3_1_2}) alla b senza alterare i segni, così come possiamo moltiplicare per $n^b$.
+
+\begin{equation} \label{eq:proof_1_3_1_3}
+\begin{aligned}
+\left( \frac{1}{2}\right)^bn^b \le \left( 1 + \frac{a}{n} \right)^bn^b \le \left(\frac{3}{2}\right)^bn^b \implies \left( \frac{1}{2}\right)^bn^b \le \left( n + a \right)^b \le \left(\frac{3}{2}\right)^bn^b
+\end{aligned}
+\end{equation}
+
+\noindent
+La dimostrazione risulta praticamente conclusa, infatti abbiamo dimostrato che la diseguaglianza finale in (\ref{eq:proof_1_3_1_3}) è valida $\forall n>2|a|$. Osserviamo che vale $\forall n>|a|$, e la scelta è stata dettata dalla semplicità espositiva.
+
+\subsection{Esercizio 1.4} \label{subsec:esercizio1_4}
+\textbf{Traccia}:
+
+\noindent
+\textit{Fornire il limite inferiore e superiore per $T(n)$ nella seguente ricorrenza, usando il metodo dell'albero delle ricorrenze ed il teorema dell'esperto se applicabile. Si fornisca il limite più stretto possibile giustificando la risposta.} 
+\begin{itemize}
+    \item $T(n) = 2T(\frac{n}{3}) + n\lg n$;
+    \item $T(n) = 3T(\frac{n}{5}) + \lg^2 n$;
+\end{itemize}
+
+\vspace{\baselineskip}
+\noindent
+\textbf{Soluzione}: 
+
+
 \section{Homework set 2} \label{sec:homework_2}% Numbered section 
 \subsection{Esercizio 2.1} \label{subsec:esercizio2_1}
 prova prova
