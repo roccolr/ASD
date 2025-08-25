@@ -48,7 +48,62 @@ In questo documento verranno sviluppati i due set di Homeworks assegnati per sos
 
 \section{Homework set 1} \label{sec:homework_1}% Numbered section 
 \subsection{Esercizio 1.1} \label{subsec:esercizio1_1}
-prova prova
+\textbf{Traccia}:
+
+\noindent
+\textit{Per ognuna delle seguenti affermazioni, si dica se essa è sempre vera, mai vera, o a volte 
+vera, per funzioni asintoticamente non-negative. Se la si considera sempre vera o mai vera, 
+si spieghi il perché. Se è a volte vera, si dia un esempio per cui è vera e uno per cui è falsa.}
+\begin{itemize}
+    \item $f(n) = O(f(n)^2)$;
+    \item $f(n) + O(f(n)) =  \Theta(f(n))$;
+    \item $ f(n) = \Omega(g(n))$ e $f(n) = o(g(n))$
+\end{itemize}
+\vspace{\baselineskip}
+
+\noindent
+\textbf{Soluzione}: 
+
+\noindent
+$f(n) = O(f(n)^2) $ è un'affermazione vera a volte: infatti $f(n) = O(f(n)^2) \iff f(n) \le cf(n)^2 $ per qualche costante $ c>0 $ e per qualche $n > n_0$. Poichè la funzione f(n) è definita asintoticamente \textit{non negativa}, possiamo assumere che per n sufficientemente grande la funzione assumerà soltanto valori o positivi o nulli. 
+
+\noindent
+Nel caso in cui $f(n) = 0$, la disuguaglianza è verificata perchè $ 0 \le c \cdot 0^2$ è vero sempre. 
+
+\noindent
+Nel caso in cui $f(n) > 0$:
+
+\begin{equation} \label{eq:proof_1_1_1}
+\begin{aligned}
+f(n) &\le cf(n)^2 \implies f(n) \ge \frac{1}{c} \text{,  } \forall n \ge n_0
+\end{aligned}
+\end{equation}
+
+\noindent
+La disuguaglianza nel secondo caso è verificata solo se la funzione $f(n)$ risulta, per n sufficientemente grande, maggiore di $\frac{1}{c}$, ovvero se risulta limitata inferiormente da una costante strettamente maggiore di 0, come riportato nel passaggio (\ref{eq:proof_1_1_1}).
+Un esempio di funzione asintoticamente non negativa che soddisfa la definizione è $f(n) = n$, mentre un esempio di funzione asintoticamente non negativa che non soddisfa la definizione è $f(n) = \frac{1}{n}$.
+\vspace{\baselineskip}
+
+\noindent
+Per quanto riguarda la seconda affermazione, $f(n) + O(f(n)) =  \Theta(f(n))$, dimostriamo che è sempre vera: il generico elemento $h(n) \in \{f(n) + O(n)\}$ possiamo scriverlo come $h(n) = f(n) + g(n)$, con $g(n) \in O(n)$; I passaggi illustrati in  (\ref{eq:proof_1_1_2_1}) dimostrano che $f(n) + O(f(n)) = \Theta(f(n))$ $\forall n \ge n_0$, mentre i passaggi illustrati in (\ref{eq:proof_1_1_2_2}) dimostrano che $f(n) + O(f(n)) = \Omega(f(n))$ $\forall n \ge n_0$. 
+
+\begin{equation} \label{eq:proof_1_1_2_1}
+\begin{aligned}
+g(n) \le cf(n) \implies h(n) &= f(n) + g(n) \\ &\le f(n) + cf(n) \\ 
+&\le (1+c)f(n) 
+\end{aligned}
+\end{equation}
+
+\begin{equation} \label{eq:proof_1_1_2_2}
+\begin{aligned}
+g(n) \ge 0 \implies f(n) + g(n) \ge f(n)
+\end{aligned}
+\end{equation}
+
+\noindent
+Possiamo concludere che il generico elemento $h(n) \in \{f(n)+O(f(n))\}$ è sia un elemento di $O(f(n))$ che un elemento di $\Omega(f(n))$, ragione per cui $\{f(n)+O(f(n))\} \subseteq {\Theta(f(n))} \implies f(n) + O(f(n)) = \Theta(f(n))$.
+
+
 \subsection{Esercizio 1.2} \label{subsec:esercizio1_2}
 prova prova
 \section{Homework set 2} \label{sec:homework_2}% Numbered section 
