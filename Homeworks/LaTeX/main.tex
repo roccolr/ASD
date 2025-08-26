@@ -226,6 +226,144 @@ La dimostrazione risulta praticamente conclusa, infatti abbiamo dimostrato che l
 \noindent
 \textbf{Soluzione}: 
 
+\noindent
+Per quanto riguarda la ricorrenza $T(n) = 2T(\frac{n}{3}) + n\lg n$, possiamo utilizzare l'albero delle ricorrenze presentato in figura (\ref{fig:recurrence_tree_1}) per ipotizzare una possibile forma chiusa. 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.5\textwidth]{img/recurrence_tree_1.png}
+    \label{fig:recurrence_tree_1}
+\end{figure}
+
+\noindent
+Notiamo che il livello i-esimo dell'albero presenta un costo di $\left(\frac{2}{3}\right)^i n \lg \left(\frac{n}{3^i}\right)$. Con buona approssimazione possiamo ipotizzare che l'albero abbia profondita massima $\log_3 n$, dove vi sono $2^(log_3n)$ foglie, il cui costo è T(1). Quindi, il costo totale dell'ultimo livello è $T(1)2^{\log_{3}{n}} = T(1)n^{log_{3}{2}} = \Theta(n^{log_{3} {2}})$.
+
+
+\begin{equation} \label{eq:proof_1_4_1_1}
+\begin{aligned}
+T(n) & = \sum_{i=0}^{log_{3}{n} -1 } \left(\frac{2}{3}\right)^i n \lg{\frac{n}{3^i}} + \Theta(n^{log_{3}{2}}) \\
+& = n \lg{n} \sum_{i=0}^{log_{3}{n} -1 }\left(\frac{2}{3}\right)^i - n \lg{n} \sum_{i=0}^{log_{3}{n} -1 }\left(\frac{2}{3}\right)^i \lg{3^i} + \Theta(n^{log_{3}{2}}) \\
+& = n \lg{n} \sum_{i=0}^{log_{3}{n} -1 }\left(\frac{2}{3}\right)^i - n \lg{n} \sum_{i=0}^{log_{3}{n} -1 }i\left(\frac{2}{3}\right)^i \lg{3} + \Theta(n^{log_{3}{2}}) \\
+& \le n \lg{n} \sum_{i=0}^{\infty}\left(\frac{2}{3}\right)^i + \Theta(n^{log_{3}{2}}) \\
+& \le 3 n \lg{n}  + \Theta(n^{log_{3}{2}})
+\end{aligned}
+\end{equation}
+
+\noindent Per questo motivo è possibile ipotizzare $T(n) = O(n\lg{n})$. Osservando poi che la prima chiamata costa proprio $n \lg{n}$, possiamo restringere l'ipotesi a $T(n) = \Theta(n \lg{n})$. L'ipotesi può essere verificata mediante il terzo caso del teorema dell'esperto:
+
+\begin{equation} \label{eq:proof_1_4_1_2}
+\begin{aligned}
+n \lg{n} = \Omega(n^{\log_{3}{2} + \epsilon}); \ \text{se scegliamo } \epsilon = 0.27, \text{la condizione risulta verificata}.
+\end{aligned}
+\end{equation}
+
+\begin{equation} \label{eq:proof_1_4_1_3}
+\begin{aligned}
+2 \frac{n}{3} \lg{\frac{n}{3}} &\le c n \lg{n} \\
+\frac{2}{3} n \lg{n} - \frac{2}{3} n \lg{3} &\le c n \lg{n} \\
+\left(\frac{2}{3} - c\right) \lg{n} &\le \frac{2}{3} \lg{3} \\
+\end{aligned}
+\end{equation}
+
+\noindent  Tramite (\ref{eq:proof_1_4_1_2}) abbiamo verificato la prima ipotesi, mentre tramite (\ref{eq:proof_1_4_1_3}) verifichiamo la seconda scegliendo come costante $ 0 < c=\frac{2}{3} < 1$ per $n$ sufficientemente grande. Verificate le due ipotesi del terzo caso del teorema dell'esperto, possiamo concludere che l'ipotesi era corretta, ovvero $T(n) = \Theta(n lg{n})$.
+
+\vspace{\baselineskip}
+
+\noindent Per quanto riguarda la ricorrenza $T(n) = 3T(\frac{n}{5}) + \lg^2 n$, possiamo utilizzare il teorema dell'esperto per stabilire una forma chiusa per $T(n)$.
+
+
+\begin{equation} \label{eq:proof_1_4_2_1}
+\begin{aligned}
+\lim_{n\to\infty} \frac{lg^k n}{n^\alpha} \text{, per } \ x = lg{x} \rightarrow \lim_{x\to\infty} \frac{x^k}{2^{\alpha k}} = 0 \quad \forall \alpha>0, \; \forall k>0.
+\end{aligned}
+\end{equation}
+
+\noindent Per quanto stabilito in \ref{eq:proof_1_4_2_1}, possiamo affermare che $\lg^k n = O(n^\alpha)  \forall n>n_0 \ \text{e} \ \forall \alpha > 0, k>0$. Nel nostro caso $\lg^2 n = O(n^\alpha) \  \forall \alpha > 0$. Poichè $log_{5}{3} \approx 0.68 $, rientriamo nel primo caso del teorema dell'esperto, le cui ipotesi sono verificate in (\ref{eq:proof_1_4_2_2}).
+
+\begin{equation} \label{eq:proof_1_4_2_2}
+\begin{aligned}
+\lg^2 n = O(n^{0.68 - \epsilon}) \; \text{scegliendo ad esempio } \; \epsilon = 0.1 > 0 \rightarrow \lg^2 n = O(n^{0.58})
+\end{aligned}
+\end{equation}
+
+\noindent La (\ref{eq:proof_1_4_2_2}) risulta verificata per quanto asserito in (\ref{eq:proof_1_4_2_1}). In conclusione, per il teorema dell'esperto risulta $T(n) = \Theta(n^{\log_{5}{3}})$.
+
+
+\subsection{Problema 1.1} \label{subsec:problema_1_1}
+\textbf{Traccia}:
+
+\noindent
+\textit{Si implementi un algoritmo di ordinamento che sfrutta l'inserimento e la visita in un albero  binario di ricerca. Dato un vettore di n numeri interi in input, l'algoritmo procede prima ad 
+inserire i numeri in un albero binario di ricerca (usando ripetutamente TREE-INSERT per inserire i numeri uno alla volta), e poi stampa i numeri in ordine con un attraversamento in ordine simmetrico dell'albero. Si analizzi la complessità nel caso peggiore e nel caso migliore per questo algoritmo di ordinamento.}
+
+\vspace{2\baselineskip}
+\noindent
+\textbf{Soluzione}: 
+
+\noindent
+La soluzione presentata di seguito, così come gli altri problemi, è pensata in linguaggio c. Il file sorgente editabile \textit{"problem1\_1.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
+
+\begin{lstlisting}
+#include <stdio.h>
+#include <stdlib.h>
+
+void tree_insert(Tree*, Node *);
+void tree_init(Tree*);
+void in_order_tree_walk(Node *);
+void delete_tree(Tree *);
+
+int main(int argc, char ** argv){
+    int n = atoi(argv[1]);
+    Tree * tree = (Tree*)malloc(sizeof(Tree));
+    tree_init(tree);
+
+    for(int i=0; i<n; i++){
+        Node * new_node = (Node*)malloc(sizeof(Node));
+        new_node->key=atoi(argv[i+2]);
+        new_node->left = NULL;
+        new_node->right = NULL;
+        tree_insert(tree, new_node);
+    }
+    in_order_tree_walk(tree->root);
+    delete_tree(tree);
+    free(tree);
+    return 0;
+}
+
+\end{lstlisting}
+\noindent
+L'input viene passato tramite linea di comando, e consiste in un intero che indica la dimensione dell'array da ordinare, seguito dagli interi costituenti l'array.
+
+% Command-line "screenshot"
+\begin{commandline}
+\begin{verbatim}
+$ gcc problem1_1.c -o problem1_1.exe
+$ ./problem1_1.exe 7 1 2 3 4 5 6 7
+1 2 3 4 5 6 7
+
+$ ./problem1_1.exe 7 12 4 3 0 1 2 45 
+0 1 2 3 4 12 45
+
+$ ./problem1_1.exe 1 2 
+2 
+
+$ ./problem1_1.exe 0
+
+$ ./problem1_1.exe 10 -1 -22 40 515 23 21 34 -541 99 0
+-541 -22 -1 0 21 23 34 40 99 515
+\end{verbatim}
+\end{commandline}
+
+\noindent
+La complessità del ciclo for (linee 14-20) è determinata da n esecuzioni di tree\_insert, che ha complessità O(h) dove h è l'altezza dell'albero. La complessità $T(n) = O(nh)$. Nel caso migliore, l'albero è bilanciato quindi $h = \lg n$, e la complessità risulta $T(n) = O(n\lg n)$. Nel caso peggiore, l'input è costituito da dati già ordinati (caso di test 1) e questo comporta un'albero la cui altezza è $h = n$, e la complessità risulta $T(n) = O(n^2)$.
+La procedura in\_order\_tree\_walk ha complessità O(n) poichè visita tutti i nodi una sola volta, quindi la complessità totale è dominata dal ciclo for (linee 14-20).
+
+
+
+
+
+
+
 
 \section{Homework set 2} \label{sec:homework_2}% Numbered section 
 \subsection{Esercizio 2.1} \label{subsec:esercizio2_1}
