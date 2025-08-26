@@ -65,7 +65,7 @@ si spieghi il perché. Se è a volte vera, si dia un esempio per cui è vera e u
 \textbf{Soluzione}: 
 
 \noindent
-$f(n) = O(f(n)^2) $ è un'affermazione vera a volte: infatti $f(n) = O(f(n)^2) \iff f(n) \le cf(n)^2 $ per qualche costante $ c>0 $ e per qualche $n > n_0$. Poichè la funzione f(n) è definita asintoticamente \textit{non negativa}, possiamo assumere che per n sufficientemente grande la funzione assumerà soltanto valori o positivi o nulli. 
+$f(n) = O(f(n)^2) $ è un'affermazione vera a volte: infatti $f(n) = O(f(n)^2) \iff f(n) \le cf(n)^2 $ per qualche costante $ c>0 $ e per $n > n_0$. Poichè la funzione f(n) è definita asintoticamente \textit{non negativa}, possiamo assumere che per n sufficientemente grande la funzione assumerà soltanto valori o positivi o nulli. 
 
 \noindent
 Nel caso in cui $f(n) = 0$, la disuguaglianza è verificata perchè $ 0 \le c \cdot 0^2$ è vero sempre. 
@@ -358,9 +358,191 @@ $ ./problem1_1.exe 10 -1 -22 40 515 23 21 34 -541 99 0
 La complessità del ciclo for (linee 14-20) è determinata da n esecuzioni di tree\_insert, che ha complessità O(h) dove h è l'altezza dell'albero. La complessità $T(n) = O(nh)$. Nel caso migliore, l'albero è bilanciato quindi $h = \lg n$, e la complessità risulta $T(n) = O(n\lg n)$. Nel caso peggiore, l'input è costituito da dati già ordinati (caso di test 1) e questo comporta un'albero la cui altezza è $h = n$, e la complessità risulta $T(n) = O(n^2)$.
 La procedura in\_order\_tree\_walk ha complessità O(n) poichè visita tutti i nodi una sola volta, quindi la complessità totale è dominata dal ciclo for (linee 14-20).
 
+\subsection{Problema 1.2} \label{subsec:problema_1_2}
+\textbf{Traccia}:
+
+\noindent
+\textit{Si implementi un algoritmo che, a partire da un vettore di n numeri interi in input, costruisce un heap chiamando ripetutamente la procedura MAX-HEAP-INSERT (vedi slide su 
+heapsort) per inserire gli elementi nell'heap. L'algoritmo di costruzione ha il seguente 
+pseudocodice:}
+
+\begin{center}
+	\begin{minipage}{0.5\linewidth} % Adjust the minipage width to accomodate for the length of algorithm lines
+		\begin{algorithm}[H]
+			\KwIn{$A$, array di n numeri interi}  % Algorithm inputs
+			\medskip
+
+            A.heap\_size = 1 \;
+            \For{$i=2$ to A.lenght}{
+                MAX\_HEAP\_INSERT(A, A[i])
+            }
+			\caption{\texttt{build\_max\_heap\_v2}} % Algorithm name
+			\label{alg:max_heap_v2}   % optional label to refer to
+		\end{algorithm}
+	\end{minipage}
+\end{center}
+
+
+\noindent \textit{Si confronti la BUILD-MAX-HEAP vista a lezione con la BUILD-MAX-HEAP\_v2, in particolare: le due procedure creano sempre lo stesso heap se vengono eseguite con lo 
+stesso array di input? Dimostrare che lo fanno o fornite un controesempio. Dimostrare che, nel caso peggiore, BUILD-MAX-HEAP\_v2 richiedo un tempo $\Theta(nlogn)$ per costruire un heap di n elementi. }
+
+\vspace{2\baselineskip}
+\noindent
+\textbf{Soluzione}: 
+
+\noindent
+La soluzione presentata di seguito, così come gli altri problemi, è pensata in linguaggio c. Il file sorgente editabile \textit{"problem1\_2.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
+
+\begin{lstlisting}
+#include <stdio.h>
+#include <stdlib.h>
+#define INF 50000
+
+Heap* create_heap(int);
+void swap(int*, int*);
+void heap_increase_key(Heap*, int, int);
+int parent(int);
+void max_heap_insert(Heap*, int);
+void build_max_heap_v2(Heap*, int*);
+void print_heap(Heap*);
+void delete_heap(Heap*);
+
+int main(int argc, char** argv){
+    int n = atoi(argv[1]);
+    int input [n];
+    Heap * h = create_heap(n);
+    for(int i=0; i<n; i++){
+        input[i]= atoi(argv[i+2]);
+    }
+    build_max_heap_v2(h, input);
+    print_heap(h);
+    delete_heap(h);
+    free(h);
+    return 0;
+}
+
+
+\end{lstlisting}
+\noindent
+L'input viene passato tramite linea di comando, e consiste in un intero che indica la dimensione dell'array con cui costruire l'heap, seguito dagli interi costituenti l'array. 
 
 
 
+% Command-line "screenshot"
+\begin{commandline}
+\begin{verbatim}
+$ gcc problem1_2.c -o problem1_2.exe
+$ ./problem1_2.exe 5 4 2 3 5 1 
+5 4 2 3 1
+
+$ ./problem1_2.exe 6 12 1 6 9 3 
+12 9 6 1 3 0 
+
+$ ./problem1_2.exe 1 3 
+3
+
+$ ./problem1_2.exe 0
+
+$ ./problem1_2.exe 6 12 1 6 9 3 1000
+1000 9 12 1 3 6
+
+$ ./problem1_2.exe 7 1 6 4 5 3 4 10
+10 5 6 1 3 4 4
+
+\end{verbatim}
+\end{commandline}
+
+\noindent
+La procedura fin qui presentata garantisce che venga costruito un heap che rispetti le proprietà del max heap, così come la procedura vista a lezione. Tuttavia l'heap costruito potrebbe non essere uguale. Ad esempio, l'input \textit{<12 1 6 9 3 1000>} produce in output lo stesso heap \textit{<1000 9 12 1 3 6>}. Invece se l'input contiene numeri interi ripetuti, come nel caso di \textit{<7 1 6 4 5 3 4 10>}, l'output di BUILD-MAX-HEAP visto a lezione produce l'heap \textit{<10 6 1 5 3 4 4>} mentre BUILD-MAX-HEAP-v2 produce l'heap \textit{<10 5 6 1 3 4 4>}.
+
+\noindent
+Per quanto riguarda la complessità, questa risulta dominata dalla procedura build\_max\_heap\_v2. In questa procedura viene invocato n volte heap\_increase\_key, che ha complessità $O(log k)$, dove k sono gli elementi correntemente inseriti nell'heap. Sia T(n) la complessità associata alla procedura build\_max\_heap\_v2. 
+
+
+\begin{equation} \label{eq:problem1_2}
+\begin{aligned}
+T(n) = \sum_{k=1}^{n} O(\lg(k))
+\end{aligned}
+\end{equation}
+
+\noindent
+Applicando la formula di Stirling $\lg{n!} \approx n \lg{n} - n = \Theta(n\lg{n})$, possiamo concludere che la complessità della procedura dominante è $\Theta(n\lg{n})$.
+
+
+
+\subsection{Problema 1.3} \label{subsec:problema_1_3}
+\textbf{Traccia}:
+
+\noindent
+\textit{Sia A[1 . . n] un array di n elementi distinti “quasi ordinato”, ovvero in cui ogni elemento dell'array si trova entro k slot dalla sua posizione corretta. Definiamo una "\textbf{inversione}": se i<j e A[i] > A[j], allora la coppia (i,j) è detta inversione di A. Si implementi un algoritmo che ordina il vettore A in tempo (n lg k). Suggerimento: Si usi un Heap.}
+
+\vspace{2\baselineskip}
+\noindent
+\textbf{Soluzione}: 
+
+\noindent
+La soluzione presentata di seguito, così come gli altri problemi, è pensata in linguaggio c. Il file sorgente editabile \textit{"problem1\_3.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
+
+\newpage
+\begin{lstlisting}
+#include <stdio.h>
+#include <stdlib.h>
+#define INF 50000
+
+void swap(int*, int*);
+Heap * create_heap(int);
+void destroy_heap(Heap*);
+int left(int);
+int right(int);
+int parent(int);
+void min_heapify(Heap *, int);
+int extract_min(Heap *);
+void heap_decrease_key(Heap*, int, int);
+void min_heap_insert(Heap*, int);
+void ordina(int *, int, int);
+
+int main(int argc, char ** argv){
+    int n = atoi(argv[1]);
+    int k = atoi(argv[2]);
+    int * input = (int*)malloc(n*sizeof(int)); 
+    for(int i=0; i<n; i++) input[i] = atoi(argv[i+3]);
+    ordina(input, n, k);
+    for(int i=0; i<n; i++) printf("%d ", input[i]);
+    printf("\n");
+    free(input);
+    return 0;
+}
+
+
+
+\end{lstlisting}
+\noindent
+L'input viene passato tramite linea di comando, e consiste in un intero che indica la dimensione dell'array da ordinare, un intero che indica le k posizioni entro cui si può trovare l'inversione, seguito dagli interi costituenti l'array. 
+
+
+
+% Command-line "screenshot"
+\begin{commandline}
+\begin{verbatim}
+$ gcc problem1_3.c -o problem1_3.exe
+$ ./problem1_3.exe 5 4 2 3 5 1 
+5 4 2 3 1
+
+$ ./problem1_3.exe 7 3 6 5 3 2 8 10 9 
+2 3 5 6 8 9 10
+
+$ ./problem1_3.exe 11 3 1 2 4 5 6 3 9 11 12 13 10 
+1 2 3 4 5 6 7 8 9 10
+
+$ ./problem1_3.exe 0 9
+
+$ ./problem1_3.exe 10 9 10 9 2 4 5 6 3 8 7 11
+2 3 4 5 6 7 8 9 10 11
+\end{verbatim}
+\end{commandline}
+
+\noindent
+La complessità è determinata dalla procedura \textit{ordina()} che chiama n volte \textit{min\_heap\_insert()} su un heap di dimensione massima k ($O(\lg{k})$). La complessità è dunque $T(n) = \Theta(n\lg{k})$.
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.10)  26 AUG 2025 17:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.10)  27 AUG 2025 00:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -790,24 +790,31 @@ LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 355.
  (C:\Users\Flexo Rodriguez\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmss.fd
 File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-) [5] [6] (C:\Users\Flexo Rodriguez\Desktop\ASD\Homeworks\LaTeX\out\main.aux)
+) [5] [6]
+Overfull \hbox (12.99916pt too wide) in paragraph at lines 458--460
+\T1/XCharter-TLF/m/n/10 e-menti cor-rente-mente in-ser-iti nell'heap. Sia T(n) la com-p-lessità as-so-ci-ata alla pro-ce-dura build_max_heap_v2. 
+ []
+
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/it' will be
+(Font)              scaled to size 10.0pt on input line 477.
+[7] [8] [9] (C:\Users\Flexo Rodriguez\Desktop\ASD\Homeworks\LaTeX\out\main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 21124 strings out of 474486
- 406759 string characters out of 5738999
- 2072542 words of memory out of 5000000
- 42969 multiletter control sequences out of 15000+600000
- 639630 words of font info for 94 fonts, out of 8000000 for 9000
+ 21204 strings out of 474486
+ 408167 string characters out of 5738999
+ 2120542 words of memory out of 5000000
+ 43047 multiletter control sequences out of 15000+600000
+ 645955 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 132i,10n,148p,1197b,1252s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\Flexo Rodriguez\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Flexo Rodriguez\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1000.pk> <C:\Users\Flexo Rodriguez\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\Flexo Rodriguez\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/xcharter/XCharter-Bold.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/xcharter/XCharter-Italic.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/xcharter/XCharter-Roman.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on "C:\Users\Flexo Rodriguez\Desktop\ASD\Homeworks\LaTeX\out\main.pdf" (6 pages, 336379 bytes).
+ 132i,11n,148p,1197b,1252s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Flexo Rodriguez\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Flexo Rodriguez\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecss1000.pk> <C:\Users\Flexo Rodriguez\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\Flexo Rodriguez\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/xcharter/XCharter-Bold.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/xcharter/XCharter-BoldItalic.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/xcharter/XCharter-Italic.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/xcharter/XCharter-Roman.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "C:\Users\Flexo Rodriguez\Desktop\ASD\Homeworks\LaTeX\out\main.pdf" (9 pages, 396793 bytes).
 PDF statistics:
- 206 PDF objects out of 1000 (max. 8388607)
+ 239 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
