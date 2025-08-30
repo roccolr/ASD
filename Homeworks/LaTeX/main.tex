@@ -85,7 +85,7 @@ Un esempio di funzione asintoticamente non negativa che soddisfa la definizione 
 \vspace{\baselineskip}
 
 \noindent
-Per quanto riguarda la seconda affermazione, $f(n) + O(f(n)) =  \Theta(f(n))$, dimostriamo che è sempre vera: il generico elemento $h(n) \in \{f(n) + O(n)\}$ possiamo scriverlo come $h(n) = f(n) + g(n)$, con $g(n) \in O(n)$; I passaggi illustrati in  (\ref{eq:proof_1_1_2_1}) dimostrano che $f(n) + O(f(n)) = O(f(n))$ $\forall n \ge n_0$, mentre i passaggi illustrati in (\ref{eq:proof_1_1_2_2}) dimostrano che $f(n) + O(f(n)) = \Omega(f(n))$ $\forall n \ge n_0$. 
+Per quanto riguarda la seconda affermazione, $f(n) + O(f(n)) =  \Theta(f(n))$, dimostriamo che è sempre vera: il generico elemento $h(n) \in \{f(n) + O(f(n))\}$ possiamo scriverlo come $h(n) = f(n) + g(n)$, con $g(n) \in O(f(n))$; I passaggi illustrati in  (\ref{eq:proof_1_1_2_1}) dimostrano che $f(n) + O(f(n)) = O(f(n))$ $\forall n \ge n_0$, mentre i passaggi illustrati in (\ref{eq:proof_1_1_2_2}) dimostrano che $f(n) + O(f(n)) = \Omega(f(n))$ $\forall n \ge n_0$. 
 
 \begin{equation} \label{eq:proof_1_1_2_1}
 \begin{aligned}
@@ -96,7 +96,7 @@ g(n) \le cf(n) \implies h(n) &= f(n) + g(n) \\ &\le f(n) + cf(n) \\
 
 \begin{equation} \label{eq:proof_1_1_2_2}
 \begin{aligned}
-g(n) \ge 0 \implies f(n) + g(n) \ge f(n)
+g(n) \ge 0 \implies f(n) + g(n) \ge 1 \cdot f(n)
 \end{aligned}
 \end{equation}
 
@@ -236,7 +236,7 @@ Per quanto riguarda la ricorrenza $T(n) = 2T(\frac{n}{3}) + n\lg n$, possiamo ut
 \end{figure}
 
 \noindent
-Notiamo che il livello i-esimo dell'albero presenta un costo di $\left(\frac{2}{3}\right)^i n \lg \left(\frac{n}{3^i}\right)$. Con buona approssimazione possiamo ipotizzare che l'albero abbia profondita massima $\log_3 n$, dove vi sono $2^(log_3n)$ foglie, il cui costo è T(1). Quindi, il costo totale dell'ultimo livello è $T(1)2^{\log_{3}{n}} = T(1)n^{log_{3}{2}} = \Theta(n^{log_{3} {2}})$.
+Notiamo che il livello i-esimo dell'albero presenta un costo di $\left(\frac{2}{3}\right)^i n \lg \left(\frac{n}{3^i}\right)$. Con buona approssimazione possiamo ipotizzare che l'albero abbia profondita massima $\log_3 n$, dove vi sono $2^{log_{3}n}$ foglie, il cui costo è T(1). Quindi, il costo totale dell'ultimo livello è $T(1)\cdot 2^{\log_{3}{n}} = T(1)\cdot n^{log_{3}{2}} = \Theta(n^{log_{3} {2}})$.
 
 
 \begin{equation} \label{eq:proof_1_4_1_1}
@@ -546,12 +546,183 @@ La complessità è determinata dalla procedura \textit{ordina()} che chiama n vo
 
 
 
-
+\newpage
 \section{Homework set 2} \label{sec:homework_2}% Numbered section 
-\subsection{Esercizio 2.1} \label{subsec:esercizio2_1}
-prova prova
-\subsection{Esercizio 2.2} \label{subsec:esercizio2_2}
-prova prova
+
+
+\subsection{Problema 2.1} \label{subsec:problema_2_1}
+\textbf{Traccia}:
+
+\noindent
+\textit{Si consideri una matrice di 0 ed 1, in cui “1” indica “posizione occupata” e “0” indica “posizione libera”. Si scriva un algoritmo per determinare la sottomatrice massima libera (ossia che contiene tutti 0). L'algoritmo deve riportare il numero di 0 di tale sottomatrice.
+Si alleghi al PDF un file editabile riportante l'implementazione in un linguaggio a scelta, corredato da almeno due casi di test con il corrispondente output atteso. Si forniscano i tre casi di test nello stesso formato del “sample input”. Si riporti la complessità.
+}
+
+\vspace{2\baselineskip}
+\noindent
+\textbf{Soluzione}: 
+
+\noindent
+La soluzione presentata di seguito, così come gli altri problemi, è pensata in linguaggio c. Il file sorgente editabile \textit{"problem2\_1.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
+
+\begin{lstlisting}
+typedef struct {
+    int top;
+    int data[MAX];
+} Stack;
+
+void init_stack(Stack *);
+int is_empty(Stack *);
+void push(Stack*, int);
+int pop(Stack*);
+int top(Stack*);
+int largest_rectangle(int*, int);
+int max(int, int);
+
+
+int main(){
+    int i,j,N,M;
+    int max_area = 0;
+
+    // inizializza la matrice
+    scanf("%d %d", &N, &M);
+    int matrix[M][N];
+    int hist[M];
+    for(i=0; i<N; i++){
+        for(j=0; j<M; j++){
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    memset(hist, 0, M*sizeof(int));
+    for(i=0; i<N; i++){
+        for(j=0; j<M; j++){
+            if(matrix[i][j] == 0) hist[j] += 1;
+            else hist[j] = 0;
+        }
+
+        max_area = max(max_area, largest_rectangle(hist, M));
+    }
+
+    printf("MAX AREA: %d\n", max_area);
+}
+
+
+
+\end{lstlisting}
+\noindent
+L'input  consiste in due interi che indicano le dimensioni della matrice, seguiti dagli interi rappresentanti i valori effettivi della matrice. L'output consiste nella dimensione della sottomatrice con più zeri contigui. 
+
+% Command-line "screenshot"
+\begin{commandline}
+\begin{verbatim}
+$ gcc problem2_1.c -o problem2_1.exe
+$ ./problem2_1.exe 
+6 4 
+0 1 1 0
+1 0 0 1
+1 0 0 1
+1 0 0 0
+1 1 0 0 
+0 1 0 1
+MAX AREA: 6
+
+$ ./problem2_1.exe 
+4 4 
+0 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+MAX AREA: 16
+
+$ ./problem2_1.exe
+4 4 
+1 1 1 1 
+1 1 1 1 
+1 1 1 1 
+1 1 1 1
+MAX AREA: 0
+\end{verbatim}
+\end{commandline}
+
+\noindent
+Il main chiama N volte la procedura largest\_rectangle(). Questa procedura ha complessità $\Theta(M)$. La complessità totale è dunque $T(n) = \Theta(NM)$.
+
+
+\subsection{Problema 2.2} \label{subsec:problema_2_2}
+\textbf{Traccia}:
+
+\noindent
+\textit{Dato un array arr[] di dimensione n numeri interi, si scriva un algoritmo per trovare la lunghezza della sottosequenza crescente più lunga, ovvero la sottosequenza più lunga possibile in cui gli elementi sono ordinati in senso crescente. N.B una sottosequenza (diversamente da una sottostringa) può includere elementi non adiacenti.}
+
+\noindent\textit{Si alleghi al PDF un file editabile riportante l'implementazione in un linguaggio a scelta, corredato da almeno due casi di test con il corrispondente output atteso. Si forniscano i tre casi di test nello stesso formato del “sample input”. Si riporti la complessità.}
+
+\vspace{2\baselineskip}
+\noindent
+\textbf{Soluzione}: 
+
+\noindent
+La soluzione presentata di seguito, così come gli altri problemi, è pensata in linguaggio c. Il file sorgente editabile \textit{"problem2\_2.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
+
+\newpage
+\begin{lstlisting}
+int lis(int*, int);
+
+int main(){
+    int n,len;
+    scanf("%d", &n);
+    int arr[n];
+    
+    for(int i=0; i<n; i++){
+        scanf("%d", &arr[i]);
+    }
+    len = lis(arr, n);
+    printf("%d", len);
+    return 0;
+}
+
+int lis(int* arr, int n){
+    int dp[n];
+    int len = 0;
+    for(int i=0; i<n; i++) dp[i] = 1;
+
+    for(int i=0; i<n; i++){
+        for(int j=0; j<i; j++){
+            if(arr[j] < arr[i]) dp[i] = max(dp[j]+1, dp[i]); 
+        }
+    }
+}
+
+
+
+\end{lstlisting}
+\noindent
+L'input consiste in un intero che indica la dimensione dell'array, seguito dagli interi rappresentanti i valori effettivi dell'array. L'output consiste nella dimensione della più lunga sottosequenza cresente. 
+
+% Command-line "screenshot"
+\begin{commandline}
+\begin{verbatim}
+$ gcc problem2_1.c -o problem2_1.exe
+$ ./problem2_2.exe 
+5
+1 2 3 4 5
+5
+
+$ ./problem2_2.exe 
+8
+10 22 9 33 21 50 41 60
+5
+
+$ ./problem2_2.exe
+6
+6 5 4 3 2 1
+1
+\end{verbatim}
+\end{commandline}
+
+\noindent
+La complessità è determinata dalla procedura lis(). In questa procedura, viene compilata la tabella degli stati dp[] tramite $n^2$ confronti, e ciò determina la complessità totale della procedura: $T(n) = \Theta(n^2)$.
+
 \end{document}
 % % Math equation/formula
 % % \begin{equation}

@@ -1,6 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1756245763.10089 "c:/Users/Flexo Rodriguez/Desktop/ASD/Homeworks/LaTeX/main.tex" "out/main.pdf" "main" 1756245765.27706 0
+["pdflatex"] 1756593426.73962 "c:/Users/Flexo Rodriguez/Desktop/ASD/Homeworks/LaTeX/main.tex" "out/main.pdf" "main" 1756593429.08071 0
   "C:/Users/Flexo Rodriguez/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1752427977.21339 148468 f89bc1d856276a4f009bbf1d8da20744 ""
+  "C:/Users/Flexo Rodriguez/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecit0900.pk" 1752430090.10641 22984 7d8fadd1609a8a49ba5dde5fbb069c51 ""
   "C:/Users/Flexo Rodriguez/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecss1000.pk" 1748712749.24762 19932 8ee4c7dcda335d9ede302f44d48ccffa ""
   "C:/Users/Flexo Rodriguez/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt0900.pk" 1752427980.73553 17512 e2073823dcee7c67b2be16d778b734cb ""
   "C:/Users/Flexo Rodriguez/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1000.pk" 1748712752.90981 20028 21b6393e2579d50415f693e0a0405f4c ""
@@ -13,6 +14,7 @@
   "C:/Users/Flexo Rodriguez/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1744301779.43445 24229802 d1ceeaf5935f5843da78bf7c06553f07 ""
   "C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/xcharter/xch1_co4ru4.enc" 1719043975 4020 e63ebbdab76ac8c53e3407b6e8ca6cbf ""
   "C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/xcharter/xch_rydp4l.enc" 1719043975 3163 fbe7a051c6788c203614493dc165f2e9 ""
+  "C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecit0900.tfm" 993062046 1356 9c8f474920a1950a4b4aa71d57738674 ""
   "C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecrm1000.tfm" 993062122 3148 7e594c8240c71e432203f65ab5f95a51 ""
   "C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ecss1000.tfm" 993062234 3140 7eb06dfefee71119860002af13820d26 ""
   "C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/ectt0900.tfm" 993062338 1348 c9911882a95d2c1b82f0cccb2c651de8 ""
@@ -210,11 +212,11 @@
   "C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/tex/latex/xstring/xstring.sty" 1693735632 123 a302f2c651a95033260db60e51527ae8 ""
   "C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-abspage.sty" 1695383086 2269 4fe6fb3396214c91f164d45faf9bec45 ""
   "C:/Users/Flexo Rodriguez/AppData/Local/Programs/MiKTeX/tex/latex/zref/zref-base.sty" 1695383086 20785 f7d1133a287929598a897c93f8f4c44b ""
-  "C:/Users/Flexo Rodriguez/Desktop/ASD/Homeworks/LaTeX/out/main.aux" 1756245764.76042 2789 138d75f10d9ceeae9159953207d7b32f ""
-  "c:/Users/Flexo Rodriguez/Desktop/ASD/Homeworks/LaTeX/main.tex" 1756245759.78736 31180 8edaa61b6cfc5cafd19e202bf08befaf ""
+  "C:/Users/Flexo Rodriguez/Desktop/ASD/Homeworks/LaTeX/out/main.aux" 1756593428.56161 2876 1b6fc8718bd2e41dcf75b744a7bd77fe ""
+  "c:/Users/Flexo Rodriguez/Desktop/ASD/Homeworks/LaTeX/main.tex" 1756593425.67782 36326 0f2b61c7379866131018fd5acf6276e8 ""
   "img/recurrence_tree_1.png" 1756206356.07876 17105 a309c161c0a7c1c6b2abe00635c154c0 ""
-  "out/main.aux" 1756245764.76042 2789 138d75f10d9ceeae9159953207d7b32f "pdflatex"
-  "structure.tex" 1756147579.43671 8769 fd195991deae64ad6dfde65e5deb2c7e ""
+  "out/main.aux" 1756593428.56161 2876 1b6fc8718bd2e41dcf75b744a7bd77fe "pdflatex"
+  "structure.tex" 1756585119.4593 8769 fd195991deae64ad6dfde65e5deb2c7e ""
   (generated)
   "out/main.aux"
   "out/main.log"
