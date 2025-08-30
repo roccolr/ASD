@@ -9,3 +9,6 @@ Be aware that the problems as I present it here cannot be subscribed to _online 
 
 ## Homeworks 
 Directory where I keep my homework compiled in LaTeX, with a pdf output for each one. 
+
+## Common Patterns
+I stored some common patterns examples in the directory common_patterns. Check it for some tips about backtracking and dynamic programming.
