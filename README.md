@@ -12,3 +12,7 @@ Directory where I keep my homework compiled in LaTeX, with a pdf output for each
 
 ## Common Patterns
 I stored some common patterns examples in the directory common_patterns. Check it for some tips about backtracking and dynamic programming.
+
+## Prove Esame
+Directory where I kept some solutions to old final exam questions.
+
