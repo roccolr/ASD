@@ -82,6 +82,72 @@
   breaklines=true,
 }
 
+\lstdefinelanguage{Python3}{
+  morekeywords={
+    % Keywords
+    False, None, True, and, as, assert, async, await, break, class, continue,
+    def, del, elif, else, except, finally, for, from, global, if, import, in,
+    is, lambda, nonlocal, not, or, pass, raise, return, try, while, with, yield,
+  },
+  sensitive=true,
+  morecomment=[l]{\#},
+  morecomment=[s]{'''}{'''},
+  morecomment=[s]{"""}{"""},
+  morestring=[b]',
+  morestring=[b]",
+  morestring=[s]{'''}{'''},
+  morestring=[s]{"""}{"""},
+  % Built-in functions
+  morekeywords=[2]{
+    abs, all, any, ascii, bin, bool, bytearray, bytes, callable, chr, classmethod,
+    compile, complex, delattr, dict, dir, divmod, enumerate, eval, exec, filter,
+    float, format, frozenset, getattr, globals, hasattr, hash, help, hex, id,
+    input, int, isinstance, issubclass, iter, len, list, locals, map, max,
+    memoryview, min, next, object, oct, open, ord, pow, print, property, range,
+    repr, reversed, round, set, setattr, slice, sorted, staticmethod, str, sum,
+    super, tuple, type, vars, zip,
+  },
+  % Built-in exceptions
+  morekeywords=[3]{
+    BaseException, Exception, ArithmeticError, AssertionError, AttributeError,
+    EOFError, FloatingPointError, GeneratorExit, ImportError, IndexError,
+    KeyError, KeyboardInterrupt, MemoryError, NameError, NotImplementedError,
+    OSError, OverflowError, RecursionError, ReferenceError, RuntimeError,
+    StopIteration, SyntaxError, IndentationError, TabError, SystemError,
+    SystemExit, TypeError, UnboundLocalError, UnicodeError, ValueError,
+    ZeroDivisionError,
+  },
+  basicstyle=\ttfamily\small\color{black},
+  keywordstyle=\color{purple}\bfseries,          % keywords (def, if, for, etc.)
+  keywordstyle=[2]\color{blue}\bfseries,         % built-in functions
+  keywordstyle=[3]\color{red}\bfseries,          % exceptions
+  commentstyle=\color{teal}\itshape,             % comments
+  stringstyle=\color{orange},                     % strings
+  identifierstyle=\color{black},                  % normal identifiers
+  emphstyle=\color{violet}\bfseries,              % emphasized words
+  numbers=left,
+  numberstyle=\small\color{gray},
+  stepnumber=1,
+  numbersep=4pt,
+  frame=single,
+  rulecolor=\color{black},
+  framesep=5pt,
+  xleftmargin=20pt,
+  framexleftmargin=15pt,
+  showstringspaces=false,
+  breaklines=true,
+  tabsize=4,
+  literate=
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+    {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+    {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+    {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+}
+
 %----------------------------------------------------------------------------------------
 %	DOCUMENT MARGINS
 %----------------------------------------------------------------------------------------

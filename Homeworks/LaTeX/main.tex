@@ -6,7 +6,7 @@
 %	ASSIGNMENT INFORMATION
 %----------------------------------------------------------------------------------------
 
-\title{Homeworks Algorithms and Data Strucutres} % Title of the assignment
+\title{Algorithms and Data Strucutres Homeworks} % Title of the assignment
 
 \author{Rocco Lo Russo\\ \texttt{roc.lorusso@studenti.unina.it}} % Author name and email address
 
@@ -232,7 +232,7 @@ T(n) & = \sum_{i=0}^{log_{3}{n} -1 } \left(\frac{2}{3}\right)^i n \lg{\frac{n}{3
 
 \begin{equation} \label{eq:proof_1_4_1_2}
 \begin{aligned}
-n \lg{n} = \Omega(n^{\log_{3}{2} + \epsilon}); \ \text{se scegliamo } \epsilon = 0.27, \text{la condizione risulta verificata}.
+n \lg{n} = \Omega(n^{\log_{3}{2} + \epsilon}); \ \text{se scegliamo } \epsilon = 0.37, \text{la condizione risulta verificata}.
 \end{aligned}
 \end{equation}
 
@@ -253,7 +253,7 @@ n \lg{n} = \Omega(n^{\log_{3}{2} + \epsilon}); \ \text{se scegliamo } \epsilon =
 
 \begin{equation} \label{eq:proof_1_4_2_1}
 \begin{aligned}
-\lim_{n\to\infty} \frac{lg^k n}{n^\alpha} \text{, per } \ x = lg{x} \rightarrow \lim_{x\to\infty} \frac{x^k}{2^{\alpha k}} = 0 \quad \forall \alpha>0, \; \forall k>0.
+\lim_{n\to\infty} \frac{lg^k n}{n^\alpha} \text{, per } \ x = lg{n} \rightarrow \lim_{x\to\infty} \frac{x^k}{2^{\alpha x}} = 0 \quad \forall \alpha>0, \; \forall k>0.
 \end{aligned}
 \end{equation}
 
@@ -280,7 +280,7 @@ inserire i numeri in un albero binario di ricerca (usando ripetutamente TREE-INS
 \textbf{Soluzione}: 
 
 \noindent
-La soluzione presentata di seguito, così come gli altri problemi, è pensata in linguaggio c. Il file sorgente editabile \textit{"problem1\_1.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
+La soluzione presentata di seguito è pensata in linguaggio c. Il file sorgente editabile \textit{"problem1\_1.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
 
 \begin{lstlisting}
 #include <stdio.h>
@@ -370,7 +370,7 @@ stesso array di input? Dimostrare che lo fanno o fornite un controesempio. Dimos
 \textbf{Soluzione}: 
 
 \noindent
-La soluzione presentata di seguito, così come gli altri problemi, è pensata in linguaggio c. Il file sorgente editabile \textit{"problem1\_2.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
+La soluzione presentata di seguito è pensata in linguaggio c. Il file sorgente editabile \textit{"problem1\_2.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
 
 \begin{lstlisting}
 #include <stdio.h>
@@ -417,9 +417,6 @@ $ ./problem1_2.exe 5 4 2 3 5 1
 $ ./problem1_2.exe 6 12 1 6 9 3 
 12 9 6 1 3 0 
 
-$ ./problem1_2.exe 1 3 
-3
-
 $ ./problem1_2.exe 0
 
 $ ./problem1_2.exe 6 12 1 6 9 3 1000
@@ -460,7 +457,7 @@ Applicando la formula di Stirling $\lg{n!} \approx n \lg{n} - n = \Theta(n\lg{n}
 \textbf{Soluzione}: 
 
 \noindent
-La soluzione presentata di seguito, così come gli altri problemi, è pensata in linguaggio c. Il file sorgente editabile \textit{"problem1\_3.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
+La soluzione presentata di seguito è pensata in linguaggio c. Il file sorgente editabile \textit{"problem1\_3.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
 
 \newpage
 \begin{lstlisting}
@@ -542,61 +539,43 @@ Si alleghi al PDF un file editabile riportante l'implementazione in un linguaggi
 \textbf{Soluzione}: 
 
 \noindent
-La soluzione presentata di seguito, così come gli altri problemi, è pensata in linguaggio c. Il file sorgente editabile \textit{"problem2\_1.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
+La soluzione presentata di seguito è pensata in linguaggio python3. Il file sorgente editabile \textit{"problem2\_1.py"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
 
-\begin{lstlisting}
-typedef struct {
-    int top;
-    int data[MAX];
-} Stack;
+\begin{lstlisting}[language=Python3]
+import numpy as np 
 
-void init_stack(Stack *);
-int is_empty(Stack *);
-void push(Stack*, int);
-int pop(Stack*);
-int top(Stack*);
-int largest_rectangle(int*, int);
-int max(int, int);
+if __name__ == '__main__':
+    n = int(input())
+    for _ in range(n):
+        matrice = []
+        dim = input().split(' ')
+        N = int(dim[0])
+        M = int(dim[1])
+        for i in range(N):
+            string = input().split(' ')
+            riga = []
+            for j in range(M):
+                riga.append(string[j])
+            matrice.append(riga)
+        matrice = np.array(matrice, dtype=np.int8)
+        matrice = matrice.reshape(N,M)
+        # chiamata a funzione
 
-
-int main(){
-    int i,j,N,M;
-    int max_area = 0;
-
-    // inizializza la matrice
-    scanf("%d %d", &N, &M);
-    int matrix[M][N];
-    int hist[M];
-    for(i=0; i<N; i++){
-        for(j=0; j<M; j++){
-            scanf("%d", &matrix[i][j]);
-        }
-    }
-
-    memset(hist, 0, M*sizeof(int));
-    for(i=0; i<N; i++){
-        for(j=0; j<M; j++){
-            if(matrix[i][j] == 0) hist[j] += 1;
-            else hist[j] = 0;
-        }
-
-        max_area = max(max_area, largest_rectangle(hist, M));
-    }
-
-    printf("MAX AREA: %d\n", max_area);
-}
-
-
+        areas = []
+        for i in range(N):
+            for j in range(M):
+                backtrack(matrice, i, j, i, j, N, M, areas)
+        print(f'MAX AREA:{max(areas)}')
 
 \end{lstlisting}
 \noindent
-L'input  consiste in due interi che indicano le dimensioni della matrice, seguiti dagli interi rappresentanti i valori effettivi della matrice. L'output consiste nella dimensione della sottomatrice con più zeri contigui. 
+L'input  consiste in un intero che indica il numero di casi di test,due interi che indicano le dimensioni della matrice, seguiti da n righe di m elementi rappresentanti i valori effettivi della matrice. L'output consiste nella dimensione della sottomatrice con più zeri contigui. 
 
 % Command-line "screenshot"
 \begin{commandline}
 \begin{verbatim}
-$ gcc problem2_1.c -o problem2_1.exe
-$ ./problem2_1.exe 
+$ python3 ./problem2_1.py 
+1
 6 4 
 0 1 1 0
 1 0 0 1
@@ -606,7 +585,8 @@ $ ./problem2_1.exe
 0 1 0 1
 MAX AREA: 6
 
-$ ./problem2_1.exe 
+$ python3 ./problem2_1.py 
+1
 4 4 
 0 0 0 0
 0 0 0 0
@@ -614,19 +594,19 @@ $ ./problem2_1.exe
 0 0 0 0
 MAX AREA: 16
 
-$ ./problem2_1.exe
+$ python3 ./problem2_1.py 
+1
 4 4 
-1 1 1 1 
+1 1 0 1 
 1 1 1 1 
 1 1 1 1 
 1 1 1 1
-MAX AREA: 0
+MAX AREA: 1
 \end{verbatim}
 \end{commandline}
 
 \noindent
-Il main chiama N volte la procedura largest\_rectangle(). Questa procedura ha complessità $\Theta(M)$. La complessità totale è dunque $T(n) = \Theta(NM)$.
-
+Per ogni chiamata iniziale con indici $i$,$j$ vengono esplorati tutti i possibili rettangoli con angolo superiore sinistro in $i$,$j$. Il numero massimo di tutti i possibili stati raggiungibili da un punto di partenza $i$,$j$ è dato da tutti i possibili rettangoli ovvero $(N-i)(M-j)$. Nel caso della chiamata iniziale, sono raggiungibili $NM$ stati. Per ogni stato, is\_free() verifica un rettangolo di dimensione $(r-i+1)(c-j+1)$, nel caso peggiore di dimensione $NM$. Il costo del controllo \textit{if local\_max not in areas} è una ricerca lineare sulla lista \textit{areas}, e costa $O(k)$ dove k è la dimensione corrente della lista, al massimo $O(NM)$. Il costo complessivo è $O(N^3M^3)$, perchè nel main viene chiamata la procedura \textit{backtrack} $NM$ volte.
 
 \subsection{Problema 2.2} \label{subsec:problema_2_2}
 \textbf{Traccia}:
@@ -641,7 +621,7 @@ Il main chiama N volte la procedura largest\_rectangle(). Questa procedura ha co
 \textbf{Soluzione}: 
 
 \noindent
-La soluzione presentata di seguito, così come gli altri problemi, è pensata in linguaggio c. Il file sorgente editabile \textit{"problem2\_2.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
+La soluzione presentata di seguito è pensata in linguaggio c. Il file sorgente editabile \textit{"problem2\_2.c"} richiesto dalla consegna è presente nella directory \textit{problems} presente nel corrente archivio. Nel file sorgente sono presenti anche le implementazioni delle procedure di cui qui espongo solo la firma e le strutture dati utilizzate.
 
 \newpage
 \begin{lstlisting}
@@ -700,7 +680,7 @@ $ ./problem2_2.exe
 \end{commandline}
 
 \noindent
-La complessità è determinata dalla procedura lis(). In questa procedura, viene compilata la tabella degli stati dp[] tramite $n^2$ confronti, e ciò determina la complessità totale della procedura: $T(n) = \Theta(n^2)$.
+La complessità è determinata dalla procedura lis(). In questa procedura, viene compilata la tabella degli stati dp[] tramite $n^2$ confronti nel caso peggiore, e ciò determina la complessità totale della procedura: $T(n) = \Theta(n^2)$.
 
 \end{document}
 % % Math equation/formula
